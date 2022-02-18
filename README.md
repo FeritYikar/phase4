@@ -14,3 +14,10 @@ Once we ran the model for our first zipcode we saw some great predictions on uns
 a picture of the chart here
 
 However your model works great on some zipcodes and not so well on others. Models average MAPE was 20% when applied to all zipcodes. We then run more RNN models with more layers and some dropouts. Different models did well on different zipcodes. Then we ran different type of models to see how succesfull they are on different zipcodes.
+
+
+The Udemy course below uses RNN to deal witth a Time Series problem, our models were inspired from this course
+https://www.udemy.com/course/deeplearning/learn/lecture/6905302?start=30#content
+
+We found the blog entry below very helpful when building our Facebook Prophet Models
+https://mkang32.github.io/python/2020/12/15/prophet-intro.html
