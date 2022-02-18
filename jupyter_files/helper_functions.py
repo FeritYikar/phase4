@@ -11,6 +11,7 @@ def scrape_data(zipcode):
     import numpy as np
 
     time.sleep(2)
+    zipcode = str(zipcode)
 
     # Setting up the web scraper
     headers = requests.utils.default_headers()
@@ -30,6 +31,7 @@ def scrape_data(zipcode):
         return blank_dict
     else:
         # We'll firstly retrieve the populations
+        zipcode_1 = str(zipcode)
         pop_text = soup.find_all('script')[11].string.strip().replace('\t', '').replace('\n', '')
         pattern = '(?:\[)(.*)(?=];var.c)'
         population_group = json.loads(re.findall(pattern, pop_text)[0])
@@ -47,7 +49,7 @@ def scrape_data(zipcode):
         income_list = [round(i['y'], 2) for i in income]
         
         # Then we form a dictionary from the scraped data
-        zipcode_dictionary = {'RegionName': zipcode, 'time': time, 
+        zipcode_dictionary = {'time': time, 
                             'population': pop_list, 'land_area': land_area, 
                             'household_income': income_list}
 
@@ -70,11 +72,10 @@ def scrape_data(zipcode):
 
         # Turn our values into integers
         df['population'] = df['population'].apply(lambda x: int(x))
-        df['RegionName'] = df['RegionName'].apply(lambda x: int(x))
         df['household_income'] = df['household_income'].apply(lambda x: int(x))
 
-        # Finally turn the dataframe into a dictionary
         df = df.reset_index()
-        completed_dict = df.to_dict()
+        df['time'] = df['time'].apply(lambda x: str(x)[:-11] + '01')
+        df['RegionName'] = zipcode
 
-        return completed_dict
+        return df
