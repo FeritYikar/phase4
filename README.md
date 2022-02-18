@@ -1,12 +1,12 @@
 # Nevada Real Estate Investment Opportunities
 
-![image](https://unsplash.com/photos/4xKm7qT_RMM)
+![alt text](https://unsplash.com/photos/4xKm7qT_RMM)
 
-
+Authors: Abass Ibrahim, Ferit Yikar, Hatice K. Erdogan
 
 As Three Modellers Consulting, we have a long background in Data Science with successful anayses and building machine learning models. 
 
-PLM Real Estate has consulted us with the question: 
+PLM Real Estate has consulted us with the question: |
 What are the top 5 best zip codes for us to invest in?
 
 # Data  
